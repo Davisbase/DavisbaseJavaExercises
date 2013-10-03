@@ -2,7 +2,8 @@ package primes;
 import java.util.ArrayList;
 
 /**
- * A functional, but less-than-perfect implementation of the sieve of Eratosthenes.
+ * A functional, but less-than-perfect implementation of the sieve of 
+ * Eratosthenes.
  */
 public class Primes {
 
