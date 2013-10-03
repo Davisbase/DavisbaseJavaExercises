@@ -1,10 +1,10 @@
 package com.mycompany;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 import java.math.BigDecimal;
 
-import org.easymock.EasyMock;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -38,21 +38,18 @@ public class AccountUpdaterTest {
 		// another thing just like this for
 		// the account update. These mocks will replace the stub code from the
 		// happyPathTest
-		IShippingService mockShippingService = EasyMock
-				.createMock(IShippingService.class);
+		IShippingService mockShippingService = mock(IShippingService.class);
 
 		// some expectations
 		int productId = 424242;
 		int accountId = 575757;
 		BigDecimal amount = new BigDecimal(199.99);
-		EasyMock.expect(mockShippingService.lookupPrice(productId)).andReturn(
+		when(mockShippingService.lookupPrice(productId)).thenReturn(
 				amount);
 		
 		// Even though it's not surrounded with a call to EasyMock.expect(), this
 		// next method also creates an exception!
 		mockShippingService.shipOrder(accountId, productId); 
-		EasyMock.replay(mockShippingService); // call this when you're all done
-											  // setting up expectations.
 
 		
 		//Other mocks, and calls to the code under test go here.
@@ -60,7 +57,7 @@ public class AccountUpdaterTest {
 		
 		
 		// this should be the last line.
-		EasyMock.verify(mockShippingService);
+		verify(mockShippingService);
 	}
 
 	@Test
