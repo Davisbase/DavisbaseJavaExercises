@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import org.junit.Ignore;
 import org.junit.Test;
 
-public class AccountUpdaterTest {
+public class OrderPlacementTest {
 
 	@Test
 	public void testHappyPath() {
